@@ -84,6 +84,20 @@ public class ComplexImageCardView extends ImageCardView {
     }
 
     /**
+     * Shows the Cupertino focus ring around the thumbnail.
+     */
+    public void setFocusRingVisible(boolean visible) {
+        mComplexImageView.setFocusRingVisible(visible);
+    }
+
+    /**
+     * Color shown behind the thumbnail while it loads.
+     */
+    public void setPlaceholderColor(int color) {
+        mComplexImageView.setPlaceholderColor(color);
+    }
+
+    /**
      * Sets the progress.
      */
     public void setProgress(int percent) {

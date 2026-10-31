@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cupertino: duration / live badge pill. Color is replaced at runtime (ComplexImageView.setBadgeColor). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/cupertino_badge_bg" />
+    <corners android:radius="@dimen/card_badge_corner_radius" />
+</shape>

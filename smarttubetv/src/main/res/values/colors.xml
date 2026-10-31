@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MOD: Focused player button color (default: #66EEEEEE, new: #E8FFFFFF) -->
-    <color name="lb_control_button_color">#86EEEEEE</color>
+    <color name="lb_control_button_color">#FFFFFFFF</color>
 
     <!-- Common colors -->
     <color name="default_background_gradient_start">#000000</color>
@@ -19,7 +19,7 @@
     <color name="card_selected_background_grey">#343434</color>
     <color name="card_selected_text_black">#000000</color>
     <color name="card_selected_text_grey">#343434</color>
-    <color name="card_default_background">#0096a6</color>
+    <color name="card_default_background">@color/cupertino_surface</color>
     <color name="card_default_background_dark">#004B53</color>
     <color name="card_default_text">#FFFFFF</color>
 
@@ -60,12 +60,48 @@
     <color name="foreground_material_light_mod">@android:color/black</color>
 
     <!-- Default Orb buttons colors: search, accounts, search settings etc -->
-    <color name="orb_color">@color/grey</color>
-    <color name="orb_bright_color">@color/grey</color>
+    <color name="orb_color">@color/cupertino_surface_hi</color>
+    <color name="orb_bright_color">@color/cupertino_surface_hi2</color>
     <color name="orb_icon_color">@color/white</color>
 
     <!-- Search page mic button color -->
     <color name="lb_speech_orb_not_recording">@color/orb_color</color>
     <color name="lb_speech_orb_not_recording_pulsed">@color/orb_bright_color</color>
     <color name="lb_speech_orb_not_recording_icon">@color/orb_icon_color</color>
+
+    <!-- Cupertino design tokens (Apple TV inspired) -->
+    <color name="cupertino_bg">#0A0A0C</color>
+    <color name="cupertino_bg_top">#16161A</color>
+    <color name="cupertino_sidebar">#0F0F12</color>
+    <color name="cupertino_surface">#1C1C1E</color>
+    <color name="cupertino_surface_hi">#2C2C2E</color>
+    <color name="cupertino_surface_hi2">#3A3A3C</color>
+    <color name="cupertino_text_primary">#FFFFFF</color>
+    <color name="cupertino_text_secondary">#98989D</color>
+    <color name="cupertino_text_focused">#E6FFFFFF</color>
+    <color name="cupertino_focus_ring">#FFFFFF</color>
+    <color name="cupertino_badge_bg">#B3000000</color>
+    <color name="cupertino_live">#FF453A</color>
+    <color name="cupertino_blue">#0A84FF</color>
+    <color name="cupertino_progress_track">#33FFFFFF</color>
+    <color name="cupertino_progress_buffer">#59FFFFFF</color>
+    <color name="cupertino_dialog_bg">#F21C1C1E</color>
+    <color name="cupertino_dialog_item_focus">#24FFFFFF</color>
+    <color name="cupertino_header_pill">#FFFFFF</color>
+    <color name="cupertino_header_text_selected">#000000</color>
+
+    <!-- Leanback / leanback-preference overrides (app resources win over library ones) -->
+    <color name="lb_basic_card_title_text_color">@color/cupertino_text_primary</color>
+    <color name="lb_basic_card_content_text_color">@color/cupertino_text_secondary</color>
+    <color name="lb_browse_header_color">@color/cupertino_text_primary</color>
+    <color name="lb_browse_title_color">@color/cupertino_text_primary</color>
+    <color name="lb_playback_controls_time_text_color">#D9FFFFFF</color>
+    <color name="lb_playback_background_progress_color">@color/cupertino_progress_track</color>
+    <color name="lb_playback_secondary_progress_color">@color/cupertino_progress_buffer</color>
+    <color name="lb_search_bar_text">@color/cupertino_text_primary</color>
+    <color name="lb_search_bar_hint">@color/cupertino_text_secondary</color>
+    <color name="lb_preference_decor_list_background">@color/cupertino_dialog_bg</color>
+    <color name="lb_preference_item_primary_text_color_default">@color/cupertino_text_primary</color>
+    <color name="lb_preference_item_secondary_text_color_default">@color/cupertino_text_secondary</color>
+    <color name="lb_preference_item_category_text_color">@color/cupertino_text_secondary</color>
 </resources>

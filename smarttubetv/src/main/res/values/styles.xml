@@ -24,18 +24,124 @@
         <item name="android:verticalSpacing">@dimen/browse_headers_vertical_spacing</item>
     </style>
 
-    <!-- Color scheme: Teal (Default) -->
+    <!-- ====================================================================== -->
+    <!-- Cupertino: Apple TV inspired text appearances and widget styles.       -->
+    <!-- All color schemes inherit these; schemes only swap accent colors.      -->
+    <!-- ====================================================================== -->
+    <style name="Cupertino.TextAppearance.Header" parent="TextAppearance.Leanback.Header">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/lb_browse_header_text_size</item>
+        <item name="android:textColor">@color/cupertino_text_primary</item>
+    </style>
+    <style name="Cupertino.Header" parent="Widget.Leanback.Header">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.Header</item>
+    </style>
+    <style name="Cupertino.TextAppearance.RowHeader" parent="TextAppearance.Leanback.Row.Header">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/cupertino_text_primary</item>
+    </style>
+    <style name="Cupertino.Row.Header" parent="Widget.Leanback.Row.Header">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.RowHeader</item>
+    </style>
+    <style name="Cupertino.TextAppearance.Title" parent="TextAppearance.Leanback.Title">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/lb_browse_title_text_size</item>
+        <item name="android:textColor">@color/cupertino_text_primary</item>
+    </style>
+    <style name="Cupertino.Title.Text" parent="Widget.Leanback.Title.Text">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.Title</item>
+    </style>
+    <style name="Cupertino.TextAppearance.Card.Title" parent="TextAppearance.Leanback.ImageCardView.Title">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/lb_basic_card_title_text_size</item>
+        <item name="android:textColor">@color/cupertino_text_primary</item>
+    </style>
+    <style name="Cupertino.TextAppearance.Card.Content" parent="TextAppearance.Leanback.ImageCardView.Content">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/lb_basic_card_content_text_size</item>
+        <item name="android:textColor">@color/cupertino_text_secondary</item>
+    </style>
+    <style name="Cupertino.Card.Title" parent="Widget.Leanback.ImageCardView.TitleStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.Card.Title</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+    <style name="Cupertino.Card.Content" parent="Widget.Leanback.ImageCardView.ContentStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.Card.Content</item>
+    </style>
+    <!-- Text sits directly on the page background, like tvOS -->
+    <style name="Cupertino.Card.InfoArea" parent="Widget.Leanback.ImageCardView.InfoAreaStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">2dp</item>
+        <item name="android:paddingEnd">2dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+    <style name="Cupertino.TextAppearance.PlaybackTime" parent="TextAppearance.Leanback.PlaybackControlsTime">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/lb_playback_controls_time_text_size</item>
+        <item name="android:textColor">@color/lb_playback_controls_time_text_color</item>
+    </style>
+    <style name="Cupertino.PlaybackTime" parent="Widget.Leanback.PlaybackControlsTimeStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.PlaybackTime</item>
+    </style>
+    <style name="Cupertino.TextAppearance.DetailsTitle" parent="TextAppearance.Leanback.DetailsDescriptionTitle">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/cupertino_text_primary</item>
+    </style>
+    <style name="Cupertino.TextAppearance.DetailsSubtitle" parent="TextAppearance.Leanback.DetailsDescriptionSubtitle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/cupertino_text_secondary</item>
+    </style>
+    <style name="Cupertino.TextAppearance.DetailsBody" parent="TextAppearance.Leanback.DetailsDescriptionBody">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/cupertino_text_secondary</item>
+    </style>
+    <style name="Cupertino.DetailsTitle" parent="Widget.Leanback.DetailsDescriptionTitleStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.DetailsTitle</item>
+        <item name="resizedTextSize">22sp</item>
+    </style>
+    <style name="Cupertino.DetailsSubtitle" parent="Widget.Leanback.DetailsDescriptionSubtitleStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.DetailsSubtitle</item>
+    </style>
+    <style name="Cupertino.DetailsBody" parent="Widget.Leanback.DetailsDescriptionBodyStyle">
+        <item name="android:textAppearance">@style/Cupertino.TextAppearance.DetailsBody</item>
+    </style>
+    <style name="ProgressBarHorizontal.White" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar_white</item>
+    </style>
+
+    <!-- Color scheme: Cupertino (Default) -->
     <style name="App.Theme.Leanback.Player" parent="Theme.Leanback">
         <!-- <item name="android:windowBackground">@null</item> -->
         <!-- NOTE: don't use transparency because the BackgroundManager won't work (BackgroundManager:778) -->
         <item name="android:windowBackground">@android:color/black</item>
-        <item name="shelfBackground">@color/shelf_background_dark</item>
-        <item name="cardDefaultBackground">@color/card_default_background_dark</item>
+        <item name="shelfBackground">@color/black</item>
+        <item name="defaultBrandColor">@color/cupertino_sidebar</item>
+        <item name="brandColor">@color/cupertino_sidebar</item>
+        <item name="brandAccentColor">@color/cupertino_surface_hi</item>
+        <item name="cardDefaultBackground">@color/cupertino_surface</item>
         <item name="cardSelectedBackground">@color/card_selected_background_white</item>
-        <item name="cardProgressStyle">?android:attr/progressBarStyleHorizontal</item>
-        <item name="android:colorAccent" tools:targetApi="21">@color/fastlane_background</item>
+        <item name="cardProgressStyle">@style/ProgressBarHorizontal.White</item>
+        <item name="playbackProgressPrimaryColor">@color/cupertino_text_primary</item>
+        <item name="playbackProgressSecondaryColor">@color/cupertino_progress_buffer</item>
+        <item name="playbackControlsIconHighlightColor">@color/cupertino_blue</item>
+        <item name="android:colorAccent" tools:targetApi="21">@color/cupertino_text_primary</item>
         <item name="itemsVerticalGridStyle">@style/GridViewStyle</item>
         <item name="rowHorizontalGridStyle">@style/RowViewStyle</item>
+        <item name="headerStyle">@style/Cupertino.Header</item>
+        <item name="rowHeaderStyle">@style/Cupertino.Row.Header</item>
+        <item name="browseTitleTextStyle">@style/Cupertino.Title.Text</item>
+        <item name="imageCardViewTitleStyle">@style/Cupertino.Card.Title</item>
+        <item name="imageCardViewContentStyle">@style/Cupertino.Card.Content</item>
+        <item name="imageCardViewInfoAreaStyle">@style/Cupertino.Card.InfoArea</item>
+        <item name="playbackControlsTimeStyle">@style/Cupertino.PlaybackTime</item>
+        <item name="detailsDescriptionTitleStyle">@style/Cupertino.DetailsTitle</item>
+        <item name="detailsDescriptionSubtitleStyle">@style/Cupertino.DetailsSubtitle</item>
+        <item name="detailsDescriptionBodyStyle">@style/Cupertino.DetailsBody</item>
         <!-- Disable activity transition animations -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- Make activity fullscreen -->
@@ -47,18 +153,28 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <style name="App.Theme.Leanback.Browse" parent="Theme.Leanback.Browse">
-        <item name="android:windowBackground">@color/shelf_background_dark</item>
-        <item name="brandColor">@color/fastlane_background_dark</item>
-        <item name="brandAccentColor">@color/fastlane_background</item>
-        <item name="shelfBackground">@color/shelf_background_dark</item>
-        <item name="cardDefaultBackground">@color/card_default_background_dark</item>
+        <item name="android:windowBackground">@drawable/bg_window</item>
+        <item name="defaultBrandColor">@color/cupertino_sidebar</item>
+        <item name="brandColor">@color/cupertino_sidebar</item>
+        <item name="brandAccentColor">@color/cupertino_surface_hi</item>
+        <item name="shelfBackground">@drawable/bg_window</item>
+        <item name="cardDefaultBackground">@color/cupertino_surface</item>
         <item name="cardSelectedBackground">@color/card_selected_background_white</item>
-        <item name="cardProgressStyle">?android:attr/progressBarStyleHorizontal</item>
-        <item name="appLogo">@mipmap/app_logo</item>
-        <item name="android:colorAccent" tools:targetApi="21">@color/fastlane_background</item>
+        <item name="cardProgressStyle">@style/ProgressBarHorizontal.White</item>
+        <item name="appLogo">@mipmap/app_logo_mono</item>
+        <item name="android:colorAccent" tools:targetApi="21">@color/cupertino_text_primary</item>
         <item name="itemsVerticalGridStyle">@style/GridViewStyle</item>
         <item name="rowHorizontalGridStyle">@style/RowViewStyle</item>
         <item name="headersVerticalGridStyle">@style/BrowseHeaderStyle</item>
+        <item name="headerStyle">@style/Cupertino.Header</item>
+        <item name="rowHeaderStyle">@style/Cupertino.Row.Header</item>
+        <item name="browseTitleTextStyle">@style/Cupertino.Title.Text</item>
+        <item name="imageCardViewTitleStyle">@style/Cupertino.Card.Title</item>
+        <item name="imageCardViewContentStyle">@style/Cupertino.Card.Content</item>
+        <item name="imageCardViewInfoAreaStyle">@style/Cupertino.Card.InfoArea</item>
+        <item name="detailsDescriptionTitleStyle">@style/Cupertino.DetailsTitle</item>
+        <item name="detailsDescriptionSubtitleStyle">@style/Cupertino.DetailsSubtitle</item>
+        <item name="detailsDescriptionBodyStyle">@style/Cupertino.DetailsBody</item>
         <!-- Disable activity transition animations -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- Make activity fullscreen -->
@@ -70,8 +186,12 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <style name="App.Theme.Leanback.GuidedStep" parent="Theme.Leanback.GuidedStep">
-        <item name="android:windowBackground">@color/shelf_background_dark</item>
-        <item name="shelfBackground">@color/shelf_background_dark</item>
+        <item name="android:windowBackground">@drawable/bg_window</item>
+        <item name="shelfBackground">@drawable/bg_window</item>
+        <item name="guidedStepBackground">@color/cupertino_bg</item>
+        <item name="guidedActionsBackground">@color/cupertino_surface</item>
+        <item name="guidedActionsBackgroundDark">@color/cupertino_bg</item>
+        <item name="android:colorAccent" tools:targetApi="21">@color/cupertino_text_primary</item>
         <!-- Disable activity transition animations -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- Make activity fullscreen -->
@@ -86,8 +206,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <!-- AppDialogFragment background dimming -->
         <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:colorAccent" tools:targetApi="21">@color/fastlane_background</item>
-        <item name="android:colorPrimary" tools:targetApi="21">@color/fastlane_background_dark</item>
+        <!-- Dialog title bar blends into the panel -->
+        <item name="defaultBrandColor">@android:color/transparent</item>
+        <item name="android:colorAccent" tools:targetApi="21">@color/cupertino_text_primary</item>
+        <item name="android:colorPrimary" tools:targetApi="21">@color/cupertino_surface</item>
         <!-- Disable activity transition animations -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- Make activity fullscreen -->
@@ -102,7 +224,7 @@
         <!-- IllegalStateException: Only fullscreen opaque activities can request orientation -->
         <item name="android:windowIsTranslucent">false</item>
     </style>
-    <!-- End Color scheme: Teal (Default) -->
+    <!-- End Color scheme: Cupertino (Default) -->
 
     <!--  Color scheme: Dark Grey  -->
     <style name="App.Theme.DarkGrey.Player" parent="App.Theme.Leanback.Player">

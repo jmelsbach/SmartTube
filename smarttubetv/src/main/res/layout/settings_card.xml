@@ -23,5 +23,7 @@
         android:layout_width="@dimen/settings_card_width"
         android:layout_height="wrap_content"
         android:padding="@dimen/lb_basic_card_info_padding"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="14sp"
         android:textAlignment="center"/>
 </LinearLayout>

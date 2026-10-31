@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Cupertino: dialog rows get a soft rounded highlight when focused -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_focused="true" android:drawable="@color/semi_grey" />
+    <item android:state_focused="true">
+        <inset
+            android:insetLeft="@dimen/dialog_item_inset_horizontal"
+            android:insetRight="@dimen/dialog_item_inset_horizontal">
+            <shape android:shape="rectangle">
+                <solid android:color="@color/cupertino_dialog_item_focus" />
+                <corners android:radius="@dimen/dialog_item_corner_radius" />
+            </shape>
+        </inset>
+    </item>
     <item android:drawable="@color/transparent" />
 </selector>

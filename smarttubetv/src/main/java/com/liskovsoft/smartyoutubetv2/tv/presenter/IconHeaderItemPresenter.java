@@ -2,6 +2,7 @@ package com.liskovsoft.smartyoutubetv2.tv.presenter;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.leanback.widget.HeaderItem;
 import androidx.leanback.widget.ListRow;
 import androidx.leanback.widget.PageRow;
@@ -30,6 +32,8 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
     private final int mResId;
     private final String mIconUrl;
     private Drawable mDefaultIcon;
+    private int mTextColor;
+    private int mSelectedTextColor;
 
     public IconHeaderItemPresenter(int resId, String iconUrl) {
         mResId = resId;
@@ -46,6 +50,17 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
 
         View view = inflater.inflate(R.layout.icon_header_item, null);
         view.setAlpha(mUnselectedAlpha); // Initialize icons to be at half-opacity.
+
+        // Cupertino: tvOS style pill that fades in behind the selected entry
+        Context context = viewGroup.getContext();
+        mTextColor = ContextCompat.getColor(context, R.color.cupertino_text_primary);
+        mSelectedTextColor = ContextCompat.getColor(context, R.color.cupertino_header_text_selected);
+        Drawable pill = ContextCompat.getDrawable(context, R.drawable.header_pill_bg);
+        if (pill != null) {
+            pill = pill.mutate();
+            pill.setAlpha(0);
+            view.setBackground(pill);
+        }
 
         return new ViewHolder(view);
     }
@@ -94,8 +109,27 @@ public class IconHeaderItemPresenter extends RowHeaderPresenter {
     // mUnselectAlpha, and also assumes the xml inflation will return a RowHeaderView.
     @Override
     protected void onSelectLevelChanged(RowHeaderPresenter.ViewHolder holder) {
-        holder.view.setAlpha(mUnselectedAlpha + holder.getSelectLevel() *
-                (1.0f - mUnselectedAlpha));
+        float level = holder.getSelectLevel();
+        holder.view.setAlpha(mUnselectedAlpha + level * (1.0f - mUnselectedAlpha));
+
+        // Cupertino: pill fades in, label and glyph turn dark on top of it
+        Drawable pill = holder.view.getBackground();
+        if (pill != null) {
+            pill.setAlpha(Math.round(level * 255));
+        }
+
+        int color = ColorUtils.blendARGB(mTextColor, mSelectedTextColor, level);
+
+        TextView label = holder.view.findViewById(R.id.header_label);
+        if (label != null) {
+            label.setTextColor(color);
+        }
+
+        // Only monochrome section icons get tinted; channel avatars keep their colors
+        ImageView icon = holder.view.findViewById(R.id.header_icon);
+        if (icon != null && mIconUrl == null) {
+            icon.setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        }
     }
 
     private final RequestListener<Drawable> mErrorListener = new RequestListener<Drawable>() {

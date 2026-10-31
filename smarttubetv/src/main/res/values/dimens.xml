@@ -6,7 +6,7 @@
     <dimen name="card_width">200dp</dimen>
     <dimen name="card_height">110dp</dimen>
     <!-- text_badge_image_view.xml, default: 12sp -->
-    <dimen name="card_badge_text_size">14sp</dimen>
+    <dimen name="card_badge_text_size">12sp</dimen>
 
     <dimen name="shorts_card_width">120dp</dimen>
     <dimen name="shorts_card_height">200dp</dimen>
@@ -33,7 +33,7 @@
     <!-- Card view default size -->
     <!--
     <dimen name="lb_basic_card_title_text_size">14sp</dimen>
-    <dimen name="lb_basic_card_content_text_size">12sp</dimen>
+    <dimen name="lb_basic_card_content_text_size">13sp</dimen>
     -->
 
     <!-- Search items left margin (except first one). Original value: 70dp -->
@@ -87,7 +87,8 @@
     <!--<item name="lb_search_orb_focused_zoom" type="fraction">120%</item>-->
 
     <!-- MOD: Zoom factor of focused sidebar header (default: 1.2) -->
-    <!--<item format="float" name="lb_browse_header_select_scale" type="dimen">1.2</item>-->
+    <!-- Cupertino: selected header is a pill, no scaling -->
+    <item format="float" name="lb_browse_header_select_scale" type="dimen">1.0</item>
 
     <!--
     Space between cards. Origin: 8dp More info:
@@ -95,13 +96,13 @@
     -->
     <!--<dimen name="lb_browse_item_horizontal_spacing">15dp</dimen>-->
     <!--<dimen name="lb_browse_item_vertical_spacing">15dp</dimen>-->
-    <dimen name="grid_item_horizontal_spacing">15dp</dimen>
-    <dimen name="grid_item_vertical_spacing">15dp</dimen>
+    <dimen name="grid_item_horizontal_spacing">20dp</dimen>
+    <dimen name="grid_item_vertical_spacing">26dp</dimen>
     <dimen name="grid_horizontal_margin">25dp</dimen>
 
     <!-- Browse headers spacing. Origin: 21dp -->
     <!--<dimen name="lb_browse_headers_vertical_spacing">10dp</dimen>-->
-    <dimen name="browse_headers_vertical_spacing">10dp</dimen>
+    <dimen name="browse_headers_vertical_spacing">4dp</dimen>
 
     <!-- Vine card widget values -->
     <dimen name="lb_basic_card_main_width">140dp</dimen>
@@ -109,8 +110,8 @@
     <dimen name="lb_basic_card_info_height">52dp</dimen>
     <dimen name="lb_basic_card_info_padding">6dp</dimen>
     <dimen name="lb_basic_card_info_text_margin">2dp</dimen>
-    <dimen name="lb_basic_card_title_text_size">16sp</dimen>
-    <dimen name="lb_basic_card_content_text_size">12sp</dimen>
+    <dimen name="lb_basic_card_title_text_size">15sp</dimen>
+    <dimen name="lb_basic_card_content_text_size">13sp</dimen>
     <dimen name="lb_basic_card_info_badge_size">16dp</dimen>
 
     <!-- Elements below aren't used in the app -->
@@ -134,4 +135,28 @@
     <dimen name="tooltip_vertical_padding_mod">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch_mod">0dp</dimen>
     <dimen name="tooltip_y_offset_touch_mod">16dp</dimen>
+
+    <!-- Cupertino design dimensions -->
+    <dimen name="card_corner_radius">@dimen/lb_rounded_rect_corner_radius</dimen>
+    <dimen name="card_focus_ring_width">3dp</dimen>
+    <dimen name="card_progress_height">3dp</dimen>
+    <dimen name="card_badge_margin">8dp</dimen>
+    <dimen name="card_badge_padding_horizontal">7dp</dimen>
+    <dimen name="card_badge_padding_vertical">2dp</dimen>
+    <dimen name="card_badge_corner_radius">6dp</dimen>
+    <dimen name="header_pill_padding_horizontal">14dp</dimen>
+    <dimen name="header_pill_padding_vertical">9dp</dimen>
+    <dimen name="header_icon_size">26dp</dimen>
+    <dimen name="dialog_item_corner_radius">10dp</dimen>
+    <dimen name="dialog_item_inset_horizontal">10dp</dimen>
+    <!-- Leanback overrides -->
+    <item name="lb_browse_header_unselect_alpha" type="fraction">60%</item>
+    <dimen name="lb_browse_header_text_size">17sp</dimen>
+    <dimen name="lb_browse_title_text_size">30sp</dimen>
+    <dimen name="lb_preference_item_primary_text_size">16sp</dimen>
+    <dimen name="lb_preference_item_secondary_text_size">13sp</dimen>
+    <dimen name="lb_preference_decor_title_text_size">22sp</dimen>
+    <dimen name="lb_playback_transport_progressbar_bar_height">3dp</dimen>
+    <dimen name="lb_playback_transport_progressbar_active_bar_height">5dp</dimen>
+    <dimen name="lb_playback_transport_progressbar_active_radius">7dp</dimen>
 </resources>

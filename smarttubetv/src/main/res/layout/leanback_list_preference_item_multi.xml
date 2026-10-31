@@ -19,7 +19,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
+    android:background="@drawable/transparent_dialog_item_bg"
     android:clickable="true"
     android:focusable="true"
     android:descendantFocusability="blocksDescendants"

@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Cupertino: sidebar entry. The selection pill background is applied in IconHeaderItemPresenter. -->
 <androidx.leanback.widget.NonOverlappingLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="@dimen/header_pill_padding_horizontal"
+    android:paddingEnd="@dimen/header_pill_padding_horizontal"
+    android:paddingTop="@dimen/header_pill_padding_vertical"
+    android:paddingBottom="@dimen/header_pill_padding_vertical">
 
     <ImageView
         android:id="@+id/header_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="@dimen/header_icon_size"
+        android:layout_height="@dimen/header_icon_size"
+        android:scaleType="fitCenter"
         android:contentDescription="@string/header_icon" />
 
     <com.liskovsoft.smartyoutubetv2.tv.ui.widgets.marqueetextviewcompat.HeaderMarqueeTextViewCompat
         android:id="@+id/header_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="12dp"
 
         android:singleLine="true"
         android:maxWidth="150sp"
         android:marqueeRepeatLimit="marquee_forever"
         android:ellipsize="marquee"
         android:scrollHorizontally="true"
+        android:includeFontPadding="false"
 
-        style="@style/TextAppearance.Leanback.Header"/>
+        style="@style/Cupertino.TextAppearance.Header"/>
 </androidx.leanback.widget.NonOverlappingLinearLayout>

@@ -2,8 +2,13 @@ package com.liskovsoft.smartyoutubetv2.tv.ui.widgets.complexcardview;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Outline;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Build.VERSION;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -29,6 +34,7 @@ public class ComplexImageView extends RelativeLayout {
     private FrameLayout mPreviewContainer;
     private ProgressBar mProgressBar;
     private TextView mBadgeText;
+    private View mFocusRing;
     private ViewGroup mProgressContainer;
     private int mPreviewWidth;
     private int mPreviewHeight;
@@ -59,6 +65,46 @@ public class ComplexImageView extends RelativeLayout {
         mProgressBar = findViewById(R.id.clip_progress);
         mProgressContainer = findViewById(R.id.clip_info);
         mPreviewContainer = findViewById(R.id.preview_container);
+        mFocusRing = findViewById(R.id.focus_ring);
+        applyRoundedCorners();
+    }
+
+    /**
+     * Cupertino: clip the thumbnail (and the inline preview) to the card radius on all four
+     * sides. Leanback only rounds the outer card, which would leave the bottom corners of the
+     * image square now that the text area is transparent.
+     */
+    private void applyRoundedCorners() {
+        if (VERSION.SDK_INT < 21) {
+            return;
+        }
+
+        final int radius = getResources().getDimensionPixelSize(R.dimen.card_corner_radius);
+        ViewOutlineProvider rounded = new ViewOutlineProvider() {
+            @Override
+            public void getOutline(View view, Outline outline) {
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), radius);
+            }
+        };
+
+        for (View view : new View[]{mMainImage, mPreviewContainer}) {
+            if (view != null) {
+                view.setOutlineProvider(rounded);
+                view.setClipToOutline(true);
+            }
+        }
+    }
+
+    public void setFocusRingVisible(boolean visible) {
+        if (mFocusRing != null) {
+            mFocusRing.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        }
+    }
+
+    public void setPlaceholderColor(int color) {
+        if (mMainImage != null) {
+            mMainImage.setBackgroundColor(color);
+        }
     }
 
     /**
@@ -109,7 +155,13 @@ public class ComplexImageView extends RelativeLayout {
             return;
         }
 
-        mBadgeText.setBackgroundColor(color);
+        // Keep the pill shape; only swap its fill color
+        Drawable background = mBadgeText.getBackground();
+        if (background instanceof GradientDrawable) {
+            ((GradientDrawable) background.mutate()).setColor(color);
+        } else {
+            mBadgeText.setBackgroundColor(color);
+        }
     }
 
     /**
